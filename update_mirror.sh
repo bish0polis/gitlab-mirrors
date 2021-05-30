@@ -87,9 +87,11 @@ else
     prune_opt="--prune"
   fi
   git fetch ${force_opt} ${prune_opt} origin
+  git lfs fetch --all
 
   if ! ${no_remote_set};then
     #push to the remote
+    git lfs push --all gitlab
     git push ${force_opt} ${prune_opt} gitlab
   fi
 fi
